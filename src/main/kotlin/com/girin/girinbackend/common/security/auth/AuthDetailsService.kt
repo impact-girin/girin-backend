@@ -1,7 +1,7 @@
 package com.girin.girinbackend.common.security.auth
 
 import com.girin.girinbackend.common.exception.UserNotFoundException
-import com.girin.girinbackend.domain.repository.user.UserRepository
+import com.girin.girinbackend.domain.repository.UserRepository
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service

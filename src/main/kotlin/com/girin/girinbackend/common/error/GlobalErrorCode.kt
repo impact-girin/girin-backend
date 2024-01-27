@@ -19,6 +19,7 @@ enum class GlobalErrorCode(
     FEIGN_NOT_FOUND(404, "Feign Not Found"),
 
     USER_EXIST(status = 409, message = "User Exist"),
+    ALREADY_PARTICIPATE(409, "Already Participate"),
 
     FEIGN_EXPIRED_TOKEN(419, "Feign Expired Token."),
 
