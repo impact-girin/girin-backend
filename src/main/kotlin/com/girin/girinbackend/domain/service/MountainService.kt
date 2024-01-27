@@ -1,0 +1,29 @@
+package com.girin.girinbackend.domain.service
+
+import com.girin.girinbackend.domain.controller.dto.response.MountainList
+import com.girin.girinbackend.domain.repository.MountainRepository
+import org.springframework.stereotype.Service
+
+@Service
+class MountainService(
+    private val mountainRepository: MountainRepository,
+) {
+
+    fun getMountainListByName(name: String): MountainList {
+        val mountainList = mountainRepository.findAllByName(name)
+
+        val response = mountainList.map { mountain ->
+            MountainList.MountainElement(
+                mountainId = mountain.id,
+                latitude = mountain.latitude,
+                longitude = mountain.longitude,
+                name = mountain.name,
+                height = mountain.height,
+                detailInfo = mountain.detailInfo,
+                mountainImageUrl = mountain.mountainImageUrl,
+            )
+        }
+
+        return MountainList(response)
+    }
+}
