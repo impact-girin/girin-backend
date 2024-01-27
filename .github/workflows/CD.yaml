@@ -48,4 +48,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_IMAGE }}
             docker stop ${{ secrets.SERVER_NAME }}
             docker rm ${{ secrets.SERVER_NAME }}
-            docker run -d --name ${{ secrets.SERVER_NAME }} -p 80:8080 --env-file .env ${{ secrets.DOCKER_IMAGE }}
+            docker run -d --name ${{ secrets.SERVER_NAME }} -p 8080:8080 --env-file .env ${{ secrets.DOCKER_IMAGE }}
