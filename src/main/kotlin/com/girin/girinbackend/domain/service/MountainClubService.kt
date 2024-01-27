@@ -30,6 +30,7 @@ class MountainClubService(
                 introduce = request.introduce,
                 maxPeople = request.maxPeople,
                 mountainClubImageUrl = request.mountainClubImageUrl,
+                contactLink = request.contactLink,
                 headUser = currentUser,
             )
         )

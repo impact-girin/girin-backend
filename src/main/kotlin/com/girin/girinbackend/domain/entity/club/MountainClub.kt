@@ -36,6 +36,9 @@ class MountainClub(
     @Column
     val mountainClubImageUrl: String,
 
+    @Column
+    val contactLink: String,
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "head_user_id")
     val headUser: User,
