@@ -19,7 +19,6 @@ class UserService(
     private val userFacade: UserFacade,
     private val jwtProvider: JwtProvider,
 ) {
-
     fun signUp(request: UserSignUpRequest): TokenResponse {
         if (userRepository.existsByPhoneNumber(request.phoneNumber)) {
             throw UserExistException

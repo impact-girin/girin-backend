@@ -100,4 +100,30 @@ class MountainClubService(
             )
         )
     }
+
+    fun getMyMountainClubList(): MyMountainClubList {
+        val user = userFacade.getCurrentUser()
+
+        val userParticipateMountainClubIdList: List<Long> = participateMountainClubRepository
+            .findAllByUserId(user.id).map { it.mountainClub.id }
+
+        val userMountainList = mountainClubRepository.findAll()
+
+        val response = userParticipateMountainClubIdList.map { mountainClubId ->
+            val mountainClub = userMountainList.find { mountainClubId == it.id }
+                ?: throw MountainClubNotFoundException
+
+            MountainClubList.MountainClubElement(
+                mountainClubId = mountainClub.id,
+                clubName = mountainClub.name,
+                zone = mountainClub.zone,
+                maxPeople = mountainClub.maxPeople,
+                introduce = mountainClub.introduce,
+                mountainClubImageUrl = mountainClub.mountainClubImageUrl,
+                contactLink = mountainClub.contactLink,
+            )
+        }
+
+        return MyMountainClubList(response)
+    }
 }

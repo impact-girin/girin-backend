@@ -8,4 +8,5 @@ import org.springframework.data.repository.CrudRepository
 interface ParticipateMountainClubRepository : CrudRepository<ParticipateMountainClub, Long> {
     fun existsByUserAndMountainClub(user: User, mountainClub: MountainClub): Boolean
     fun countByMountainClub(mountainClub: MountainClub): Int
+    fun findAllByUserId(userId: Long): List<ParticipateMountainClub>
 }

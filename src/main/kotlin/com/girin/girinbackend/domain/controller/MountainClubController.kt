@@ -2,6 +2,7 @@ package com.girin.girinbackend.domain.controller
 
 import com.girin.girinbackend.domain.controller.dto.request.CreateMountainClubRequest
 import com.girin.girinbackend.domain.controller.dto.response.MountainClubList
+import com.girin.girinbackend.domain.controller.dto.response.MyMountainClubList
 import com.girin.girinbackend.domain.controller.dto.response.OneMountainClubElement
 import com.girin.girinbackend.domain.service.MountainClubService
 import org.springframework.http.HttpStatus
@@ -41,5 +42,10 @@ class MountainClubController(
         @PathVariable("mountain-club-id") mountainClubId: Long
     ): OneMountainClubElement {
         return mountainClubService.getMountainClubById(mountainClubId)
+    }
+
+    @GetMapping("/my")
+    fun getMyMountainClubList(): MyMountainClubList {
+        return mountainClubService.getMyMountainClubList()
     }
 }
