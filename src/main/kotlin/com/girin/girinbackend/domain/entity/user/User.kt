@@ -12,7 +12,7 @@ import jakarta.persistence.Table
 class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long = 0,
 
     @Column
     val phoneNumber: String,
