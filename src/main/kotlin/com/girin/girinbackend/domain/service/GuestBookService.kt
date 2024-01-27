@@ -16,8 +16,8 @@ class GuestBookService(
     private val userFacade: UserFacade,
 ) {
 
-    fun getGuestBookList(): GuestBookList {
-        val guestBookList = guestBookRepository.findAll()
+    fun getGuestBookList(name: String): GuestBookList {
+        val guestBookList = guestBookRepository.findAllByMountainName(name)
 
         val response = guestBookList.map { guestBook ->
             GuestBookList.GuestBookElement(
