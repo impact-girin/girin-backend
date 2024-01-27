@@ -28,4 +28,21 @@ class RestaurantService(
 
         return RestaurantList(response)
     }
+
+    fun getAllRestaurant(): RestaurantList {
+        val restaurantList = restaurantRepository.findAll()
+
+        val response = restaurantList.map { restaurant ->
+            RestaurantList.RestaurantElement(
+                restaurantId = restaurant.id,
+                mountainId = restaurant.mountain.id,
+                name = restaurant.name,
+                latitude = restaurant.latitude,
+                longitude = restaurant.longitude,
+                restaurantImageUrl = restaurant.restaurantImageUrl,
+            )
+        }
+
+        return RestaurantList(response)
+    }
 }

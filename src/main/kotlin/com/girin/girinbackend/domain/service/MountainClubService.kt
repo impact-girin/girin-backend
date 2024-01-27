@@ -35,7 +35,4 @@ class MountainClubService(
             )
         )
     }
-
-    // TODO: 1/27 20시 디자인 안 나와서 feign 쪽 먼저 처리
-//    fun getMountainClubList(targetZone: String)
 }

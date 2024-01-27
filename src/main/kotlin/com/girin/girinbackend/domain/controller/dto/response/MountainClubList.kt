@@ -7,6 +7,5 @@ data class MountainClubList(
         val mountainClubId: Long,
         val name: String,
         val zone: String,
-//        val age:
     )
 }

@@ -19,4 +19,9 @@ class RestaurantController(
     ): RestaurantList {
         return restaurantService.getRestaurantListNearMountain(name)
     }
+
+    @GetMapping("/all")
+    fun getAllRestaurant(): RestaurantList {
+        return restaurantService.getAllRestaurant()
+    }
 }
