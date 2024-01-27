@@ -3,7 +3,6 @@ package com.girin.girinbackend.domain.facade
 import com.girin.girinbackend.common.exception.UserNotFoundException
 import com.girin.girinbackend.domain.entity.user.User
 import com.girin.girinbackend.domain.repository.UserRepository
-import org.springframework.data.repository.findByIdOrNull
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Component
 
@@ -13,9 +12,9 @@ class UserFacade(
 ) {
 
     fun getCurrentUser(): User {
-        val userId = SecurityContextHolder.getContext().authentication.name
+        val userIdentifier = SecurityContextHolder.getContext().authentication.name
 
-        return userRepository.findByIdOrNull(userId.toLong())
+        return userRepository.findByPhoneNumber(userIdentifier)
             ?: throw UserNotFoundException
     }
 }

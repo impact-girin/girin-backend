@@ -35,6 +35,6 @@ class JwtParser(
     fun getAuthentication(token: String): Authentication {
         val claims = getClaims(token)
         val authDetails = authDetailsService.loadUserByUsername(claims.subject)
-        return UsernamePasswordAuthenticationToken(authDetails, "", authDetails.authorities)
+        return UsernamePasswordAuthenticationToken(authDetails, "", null)
     }
 }

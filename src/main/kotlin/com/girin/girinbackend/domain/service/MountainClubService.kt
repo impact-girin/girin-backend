@@ -5,6 +5,7 @@ import com.girin.girinbackend.common.exception.MountainClubNotFoundException
 import com.girin.girinbackend.common.exception.MountainNotFoundException
 import com.girin.girinbackend.domain.controller.dto.request.CreateMountainClubRequest
 import com.girin.girinbackend.domain.controller.dto.response.MountainClubList
+import com.girin.girinbackend.domain.controller.dto.response.MyMountainClubList
 import com.girin.girinbackend.domain.controller.dto.response.OneMountainClubElement
 import com.girin.girinbackend.domain.entity.club.MountainClub
 import com.girin.girinbackend.domain.entity.club.ParticipateMountainClub

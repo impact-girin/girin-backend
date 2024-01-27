@@ -1,6 +1,7 @@
 package com.girin.girinbackend.common.security
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.girin.girinbackend.common.filter.FilterConfig
 import com.girin.girinbackend.common.security.jwt.JwtParser
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -28,6 +29,7 @@ class SecurityConfig(
             .cors(Customizer.withDefaults())
             .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
             .authorizeHttpRequests { it.requestMatchers("/**").permitAll() }
+            .apply(FilterConfig(jwtParser, objectMapper))
 
         return http.build()
     }

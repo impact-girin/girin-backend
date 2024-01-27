@@ -1,5 +1,7 @@
 package com.girin.girinbackend.domain.controller.dto.response
 
+import com.girin.girinbackend.domain.controller.dto.response.MountainClubList.MountainClubElement
+
 data class MountainClubList(
     val mountainClubList: List<MountainClubElement>,
 ) {
@@ -29,3 +31,7 @@ data class OneMountainClubElement(
         val detailInfo: String,
     )
 }
+
+data class MyMountainClubList(
+    val myMountainClubList: List<MountainClubElement>,
+)
