@@ -5,6 +5,7 @@ data class RestaurantList(
 ) {
     data class RestaurantElement(
         val restaurantId: Long,
+        val mountainId: Long,
         val name: String,
         val latitude: Double,
         val longitude: Double,

@@ -1,20 +1,24 @@
 package com.girin.girinbackend.domain.service
 
 import com.girin.girinbackend.domain.controller.dto.response.RestaurantList
+import com.girin.girinbackend.domain.repository.MountainRepository
 import com.girin.girinbackend.domain.repository.RestaurantRepository
 import org.springframework.stereotype.Service
 
 @Service
 class RestaurantService(
     private val restaurantRepository: RestaurantRepository,
+    private val mountainRepository: MountainRepository,
 ) {
 
-    fun getRestaurantList(): RestaurantList {
-        val restaurant = restaurantRepository.findAll()
+    fun getRestaurantListNearMountain(name: String): RestaurantList {
+        val mountainId = mountainRepository.findByName(name).id
+        val restaurantList = restaurantRepository.findAllByMountainId(mountainId)
 
-        val response = restaurant.map { restaurant ->
+        val response = restaurantList.map { restaurant ->
             RestaurantList.RestaurantElement(
                 restaurantId = restaurant.id,
+                mountainId = restaurant.mountain.id,
                 name = restaurant.name,
                 latitude = restaurant.latitude,
                 longitude = restaurant.longitude,

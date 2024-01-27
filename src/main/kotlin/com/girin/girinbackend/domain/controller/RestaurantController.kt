@@ -4,6 +4,7 @@ import com.girin.girinbackend.domain.controller.dto.response.RestaurantList
 import com.girin.girinbackend.domain.service.RestaurantService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RequestMapping("/restaurant")
@@ -13,7 +14,9 @@ class RestaurantController(
 ) {
 
     @GetMapping("/list")
-    fun getRestaurantList(): RestaurantList {
-        return restaurantService.getRestaurantList()
+    fun getRestaurantListNearMountain(
+        @RequestParam("name") name: String,
+    ): RestaurantList {
+        return restaurantService.getRestaurantListNearMountain(name)
     }
 }
