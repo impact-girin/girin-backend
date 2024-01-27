@@ -9,8 +9,8 @@ class MountainService(
     private val mountainRepository: MountainRepository,
 ) {
 
-    fun getMountainListByName(name: String): MountainList {
-        val mountainList = mountainRepository.findAllByName(name)
+    fun getMountainList(): MountainList {
+        val mountainList = mountainRepository.findAll()
 
         val response = mountainList.map { mountain ->
             MountainList.MountainElement(
@@ -25,5 +25,19 @@ class MountainService(
         }
 
         return MountainList(response)
+    }
+
+    fun getMountainByName(name: String): MountainList.MountainElement {
+        val mountain = mountainRepository.findByName(name)
+
+        return MountainList.MountainElement(
+            mountainId = mountain.id,
+            latitude = mountain.latitude,
+            longitude = mountain.longitude,
+            name = mountain.name,
+            height = mountain.height,
+            detailInfo = mountain.detailInfo,
+            mountainImageUrl = mountain.mountainImageUrl,
+        )
     }
 }

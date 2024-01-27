@@ -12,10 +12,15 @@ import org.springframework.web.bind.annotation.RestController
 class MountainController(
     private val mountainService: MountainService,
 ) {
+    @GetMapping("/list")
+    fun getMountainList(): MountainList {
+        return mountainService.getMountainList()
+    }
+
     @GetMapping
-    fun getMountainListByName(
+    fun getMountainByName(
         @RequestParam("name") name: String,
-    ): MountainList {
-        return mountainService.getMountainListByName(name)
+    ): MountainList.MountainElement {
+        return mountainService.getMountainByName(name)
     }
 }

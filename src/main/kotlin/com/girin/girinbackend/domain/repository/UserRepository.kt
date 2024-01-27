@@ -1,4 +1,4 @@
-package com.girin.girinbackend.domain.repository.user
+package com.girin.girinbackend.domain.repository
 
 import com.girin.girinbackend.domain.entity.user.User
 import org.springframework.data.repository.CrudRepository

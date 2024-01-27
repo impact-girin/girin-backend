@@ -8,7 +8,7 @@ import com.girin.girinbackend.common.security.jwt.TokenResponse
 import com.girin.girinbackend.domain.controller.dto.request.UserSignInRequest
 import com.girin.girinbackend.domain.controller.dto.request.UserSignUpRequest
 import com.girin.girinbackend.domain.entity.user.User
-import com.girin.girinbackend.domain.repository.user.UserRepository
+import com.girin.girinbackend.domain.repository.UserRepository
 import org.springframework.stereotype.Service
 
 @Service
