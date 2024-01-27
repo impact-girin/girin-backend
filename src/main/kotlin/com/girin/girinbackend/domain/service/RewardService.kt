@@ -13,8 +13,8 @@ class RewardService(
     fun controlRewardPoint(operator: String, targetPoint: Long): String {
         val user = userFacade.getCurrentUser()
         when (operator) {
-            "+" -> user.plusRewardPoint(targetPoint)
-            "-" -> user.minusRewardPoint(targetPoint)
+            "plus" -> user.plusRewardPoint(targetPoint)
+            "minus" -> user.minusRewardPoint(targetPoint)
         }
 
         return user.rewardPoint.toString()

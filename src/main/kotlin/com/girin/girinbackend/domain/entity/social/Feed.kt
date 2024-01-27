@@ -25,7 +25,7 @@ class Feed(
     val feedImageUrl: String,
 
     @Column
-    val parentFeedId: Long?,
+    val parentFeedId: Long? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
