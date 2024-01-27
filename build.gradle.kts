@@ -11,7 +11,7 @@ plugins {
 
 dependencyManagement {
     imports {
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:2022.0.2")
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:2023.0.0")
     }
 }
 
@@ -57,6 +57,10 @@ dependencies {
 
     // Swagger
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.4")
+
+    // S3
+    implementation("org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE")
+    implementation("org.springframework.cloud:spring-cloud-aws-autoconfigure:2.2.6.RELEASE")
 }
 
 tasks.withType<KotlinCompile> {
