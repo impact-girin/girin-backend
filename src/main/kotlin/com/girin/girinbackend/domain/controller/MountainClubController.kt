@@ -24,6 +24,13 @@ class MountainClubController(
         mountainClubService.createMountainClub(request)
     }
 
+    @PostMapping("/in/{mountain-club-id}")
+    fun participatedInMountainClub(
+        @PathVariable("mountain-club-id") mountainClubId: Long,
+    ) {
+        mountainClubService.participatedInMountainClub(mountainClubId)
+    }
+
     @GetMapping("/list")
     fun getMountainClubList(): MountainClubList {
         return mountainClubService.getMountainClubList()

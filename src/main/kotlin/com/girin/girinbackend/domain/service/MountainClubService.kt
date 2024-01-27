@@ -7,6 +7,7 @@ import com.girin.girinbackend.domain.controller.dto.request.CreateMountainClubRe
 import com.girin.girinbackend.domain.controller.dto.response.MountainClubList
 import com.girin.girinbackend.domain.controller.dto.response.OneMountainClubElement
 import com.girin.girinbackend.domain.entity.club.MountainClub
+import com.girin.girinbackend.domain.entity.club.ParticipateMountainClub
 import com.girin.girinbackend.domain.facade.UserFacade
 import com.girin.girinbackend.domain.repository.MountainClubRepository
 import com.girin.girinbackend.domain.repository.MountainRepository
@@ -27,10 +28,6 @@ class MountainClubService(
         val mountain = mountainRepository.findByIdOrNull(request.mountainId)
             ?: throw MountainClubNotFoundException
 
-        if (participateMountainClubRepository.existsByUser(currentUser)) {
-            throw AlreadyParticipateException
-        }
-
         mountainClubRepository.save(
             MountainClub(
                 name = request.name,
@@ -42,6 +39,23 @@ class MountainClubService(
                 contactLink = request.contactLink,
                 headUser = currentUser,
                 mountain = mountain,
+            )
+        )
+    }
+
+    fun participatedInMountainClub(mountainClubId: Long) {
+        val user = userFacade.getCurrentUser()
+        val mountainClub = mountainClubRepository.findByIdOrNull(mountainClubId)
+            ?: throw MountainClubNotFoundException
+
+        if (participateMountainClubRepository.existsByUserAndMountainClub(user, mountainClub)) {
+            throw AlreadyParticipateException
+        }
+
+        participateMountainClubRepository.save(
+            ParticipateMountainClub(
+                mountainClub = mountainClub,
+                user = user,
             )
         )
     }

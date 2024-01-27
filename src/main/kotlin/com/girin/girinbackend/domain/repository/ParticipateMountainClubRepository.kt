@@ -6,6 +6,6 @@ import com.girin.girinbackend.domain.entity.user.User
 import org.springframework.data.repository.CrudRepository
 
 interface ParticipateMountainClubRepository : CrudRepository<ParticipateMountainClub, Long> {
-    fun existsByUser(user: User): Boolean
+    fun existsByUserAndMountainClub(user: User, mountainClub: MountainClub): Boolean
     fun countByMountainClub(mountainClub: MountainClub): Int
 }
