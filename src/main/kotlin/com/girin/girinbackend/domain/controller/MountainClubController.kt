@@ -1,8 +1,10 @@
 package com.girin.girinbackend.domain.controller
 
 import com.girin.girinbackend.domain.controller.dto.request.CreateMountainClubRequest
+import com.girin.girinbackend.domain.controller.dto.response.MountainClubList
 import com.girin.girinbackend.domain.service.MountainClubService
 import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -18,5 +20,10 @@ class MountainClubController(
     @PostMapping
     fun createMountainClub(@RequestBody request: CreateMountainClubRequest) {
         mountainClubService.createMountainClub(request)
+    }
+
+    @GetMapping
+    fun getMountainClubList(): MountainClubList {
+        return mountainClubService.getMountainClubList()
     }
 }

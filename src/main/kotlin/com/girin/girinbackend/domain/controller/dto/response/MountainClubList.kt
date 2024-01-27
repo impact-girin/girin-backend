@@ -5,7 +5,12 @@ data class MountainClubList(
 ) {
     data class MountainClubElement(
         val mountainClubId: Long,
-        val name: String,
+        val clubName: String,
         val zone: String,
+        val maxPeople: Int,
+        val introduce: String,
+        val mountainClubImageUrl: String,
+        val contactLink: String,
     )
 }
+
