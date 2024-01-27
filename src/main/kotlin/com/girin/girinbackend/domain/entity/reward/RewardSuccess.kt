@@ -15,7 +15,7 @@ import jakarta.persistence.Table
 class RewardSuccess(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long = 0,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reward_id", nullable = false)

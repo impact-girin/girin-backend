@@ -16,7 +16,7 @@ import jakarta.persistence.Table
 class Feed(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long = 0,
 
     @Column
     val content: String,

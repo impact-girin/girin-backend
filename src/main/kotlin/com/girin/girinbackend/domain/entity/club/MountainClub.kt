@@ -16,7 +16,7 @@ import jakarta.persistence.Table
 class MountainClub(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long = 0,
 
     @Column
     val name: String,
@@ -29,6 +29,12 @@ class MountainClub(
 
     @Column
     val introduce: String,
+
+    @Column
+    val maxPeople: Int,
+
+    @Column
+    val mountainClubImageUrl: String,
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "head_user_id")
