@@ -8,3 +8,15 @@ object AlreadyParticipateException : CustomException(
 ) {
     private fun readResolve(): Any = AlreadyParticipateException
 }
+
+object MountainClubNotFoundException : CustomException(
+    GlobalErrorCode.MOUNTAIN_CLUB_NOT_FOUND,
+) {
+    private fun readResolve(): Any = MountainClubNotFoundException
+}
+
+object MountainNotFoundException : CustomException(
+    GlobalErrorCode.MOUNTAIN_NOT_FOUND,
+) {
+    private fun readResolve(): Any = MountainNotFoundException
+}

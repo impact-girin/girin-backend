@@ -17,6 +17,8 @@ enum class GlobalErrorCode(
 
     USER_NOT_FOUND(status = 404, message = "User Not Found"),
     FEIGN_NOT_FOUND(404, "Feign Not Found"),
+    MOUNTAIN_NOT_FOUND(404, "Mountain Not Found"),
+    MOUNTAIN_CLUB_NOT_FOUND(404, "Mountain Club Not Found"),
 
     USER_EXIST(status = 409, message = "User Exist"),
     ALREADY_PARTICIPATE(409, "Already Participate"),
