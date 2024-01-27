@@ -3,7 +3,7 @@ package com.girin.girinbackend.common.security.auth
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
-class UserDetails(
+class AuthDetails(
     private val userId: Long,
 ) : UserDetails {
 

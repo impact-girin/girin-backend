@@ -7,14 +7,14 @@ import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
 
 @Service
-class UserDetailsService(
+class AuthDetailsService(
     private val userRepository: UserRepository,
 ) : UserDetailsService {
 
-    override fun loadUserByUsername(userId: String?): UserDetails {
+    override fun loadUserByUsername(userId: String?): AuthDetails {
         val user = userRepository.findByIdOrNull(userId?.toLong()!!)
             ?: throw UserNotFoundException
 
-        return UserDetails(user.id)
+        return AuthDetails(user.id)
     }
 }

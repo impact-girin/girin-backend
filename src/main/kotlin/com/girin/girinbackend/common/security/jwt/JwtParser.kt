@@ -4,6 +4,7 @@ import com.girin.girinbackend.common.exception.ExpiredTokenException
 import com.girin.girinbackend.common.exception.InternalServerErrorException
 import com.girin.girinbackend.common.exception.InvalidTokenException
 import com.girin.girinbackend.common.security.SecurityProperties
+import com.girin.girinbackend.common.security.auth.AuthDetailsService
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.InvalidClaimException
