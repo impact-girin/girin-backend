@@ -29,6 +29,7 @@ class UserService(
                 age = request.age,
                 zone = request.zone,
                 name = request.name,
+                rewardPoint = 0,
             )
         )
 
