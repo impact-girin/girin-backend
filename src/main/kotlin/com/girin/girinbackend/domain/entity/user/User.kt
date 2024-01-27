@@ -29,6 +29,17 @@ class User(
     @Column
     val name: String,
 
+    rewardPoint: Long,
+) {
     @Column
-    val rewardPoint: Long,
-)
+    var rewardPoint = rewardPoint
+        protected set
+
+    fun plusRewardPoint(rewardPoint: Long) {
+        this.rewardPoint += rewardPoint
+    }
+
+    fun minusRewardPoint(rewardPoint: Long) {
+        this.rewardPoint -= rewardPoint
+    }
+}

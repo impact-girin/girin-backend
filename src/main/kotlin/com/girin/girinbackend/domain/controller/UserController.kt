@@ -3,8 +3,10 @@ package com.girin.girinbackend.domain.controller
 import com.girin.girinbackend.common.security.jwt.TokenResponse
 import com.girin.girinbackend.domain.controller.dto.request.UserSignInRequest
 import com.girin.girinbackend.domain.controller.dto.request.UserSignUpRequest
+import com.girin.girinbackend.domain.controller.dto.response.MyInfoElement
 import com.girin.girinbackend.domain.service.UserService
 import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -25,5 +27,10 @@ class UserController(
     @PostMapping("/signIn")
     fun signIn(@RequestBody request: UserSignInRequest): TokenResponse {
         return userService.signIn(request)
+    }
+
+    @GetMapping("/my")
+    fun getMyInfo(): MyInfoElement {
+        return userService.getMyInfo()
     }
 }

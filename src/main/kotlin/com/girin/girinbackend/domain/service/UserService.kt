@@ -7,13 +7,16 @@ import com.girin.girinbackend.common.security.jwt.JwtProvider
 import com.girin.girinbackend.common.security.jwt.TokenResponse
 import com.girin.girinbackend.domain.controller.dto.request.UserSignInRequest
 import com.girin.girinbackend.domain.controller.dto.request.UserSignUpRequest
+import com.girin.girinbackend.domain.controller.dto.response.MyInfoElement
 import com.girin.girinbackend.domain.entity.user.User
+import com.girin.girinbackend.domain.facade.UserFacade
 import com.girin.girinbackend.domain.repository.UserRepository
 import org.springframework.stereotype.Service
 
 @Service
 class UserService(
     private val userRepository: UserRepository,
+    private val userFacade: UserFacade,
     private val jwtProvider: JwtProvider,
 ) {
 
@@ -45,5 +48,17 @@ class UserService(
         }
 
         return jwtProvider.getToken(request.phoneNumber)
+    }
+
+    fun getMyInfo(): MyInfoElement {
+        val user = userFacade.getCurrentUser()
+
+        return MyInfoElement(
+            name = user.name,
+            age = user.age,
+            zone = user.zone,
+            phoneNumber = user.phoneNumber,
+            rewardPoint = user.rewardPoint,
+        )
     }
 }
