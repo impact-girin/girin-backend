@@ -28,4 +28,7 @@ class User(
 
     @Column
     val name: String,
+
+    @Column
+    val rewardPoint: Long,
 )
