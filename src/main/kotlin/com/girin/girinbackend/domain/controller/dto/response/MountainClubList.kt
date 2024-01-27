@@ -14,3 +14,18 @@ data class MountainClubList(
     )
 }
 
+data class OneMountainClubElement(
+    val mountainClubId: Long,
+    val clubName: String,
+    val zone: String,
+    val currentPeople: Int, // 현재 인원수
+    val introduce: String, // 소개
+    val mountainClubImageUrl: String, // 이미지
+    val contactLink: String,
+    val mountainInfo: MountainInfo,
+) {
+    data class MountainInfo(
+        val height: String,
+        val detailInfo: String,
+    )
+}

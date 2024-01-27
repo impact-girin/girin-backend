@@ -8,4 +8,5 @@ data class CreateMountainClubRequest(
     val maxPeople: Int,
     val mountainClubImageUrl: String,
     val contactLink: String,
+    val mountainId: Long,
 )

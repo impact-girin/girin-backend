@@ -1,5 +1,6 @@
 package com.girin.girinbackend.domain.entity.club
 
+import com.girin.girinbackend.domain.entity.building.Mountain
 import com.girin.girinbackend.domain.entity.user.User
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -42,4 +43,8 @@ class MountainClub(
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "head_user_id")
     val headUser: User,
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "mountain_id")
+    val mountain: Mountain,
 )

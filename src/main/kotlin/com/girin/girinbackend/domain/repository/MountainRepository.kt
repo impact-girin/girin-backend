@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository
 
 interface MountainRepository : CrudRepository<Mountain, Long> {
     fun findByName(name: String): Mountain
+
 }
