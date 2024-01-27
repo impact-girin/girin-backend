@@ -2,8 +2,10 @@ package com.girin.girinbackend.domain.service
 
 import com.girin.girinbackend.common.exception.AlreadyParticipateException
 import com.girin.girinbackend.common.exception.MountainClubNotFoundException
+import com.girin.girinbackend.common.exception.MountainNotFoundException
 import com.girin.girinbackend.domain.controller.dto.request.CreateMountainClubRequest
 import com.girin.girinbackend.domain.controller.dto.response.MountainClubList
+import com.girin.girinbackend.domain.controller.dto.response.OneMountainClubElement
 import com.girin.girinbackend.domain.entity.club.MountainClub
 import com.girin.girinbackend.domain.facade.UserFacade
 import com.girin.girinbackend.domain.repository.MountainClubRepository
@@ -62,21 +64,25 @@ class MountainClubService(
         return MountainClubList(response)
     }
 
-//    fun getMountainClubById(mountainClubId: Long): OneMountainClubElement {
-//        val mountainClub = mountainClubRepository.findByIdOrNull(mountainClubId)
-//            ?: throw MountainClubNotFoundException
-//
-//        val mountain = mountainRepository.
-//
-//        val response = OneMountainClubElement(
-//            mountainClubId = mountainClub.id,
-//            clubName = mountainClub.name,
-//            zone = mountainClub.zone,
-//           currentPeople = 0,
-//            introduce = mountainClub.introduce,
-//            mountainClubImageUrl = mountainClub.mountainClubImageUrl,
-//            contactLink = mountainClub.contactLink,
-//            mountainInfo =
-//        )
-//    }
+    fun getMountainClubById(mountainClubId: Long): OneMountainClubElement {
+        val mountainClub = mountainClubRepository.findByIdOrNull(mountainClubId)
+            ?: throw MountainClubNotFoundException
+
+        val mountain = mountainRepository.findByIdOrNull(mountainClub.mountain.id)
+            ?: throw MountainNotFoundException
+
+        return OneMountainClubElement(
+            mountainClubId = mountainClub.id,
+            clubName = mountainClub.name,
+            zone = mountainClub.zone,
+            currentPeople = participateMountainClubRepository.countByMountainClub(mountainClub),
+            introduce = mountainClub.introduce,
+            mountainClubImageUrl = mountainClub.mountainClubImageUrl,
+            contactLink = mountainClub.contactLink,
+            mountainInfo = OneMountainClubElement.MountainInfo(
+                height = mountain.height,
+                detailInfo = mountain.detailInfo,
+            )
+        )
+    }
 }
