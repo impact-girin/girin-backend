@@ -28,6 +28,9 @@ class Restaurant(
     val longitude: Double, // 경도
 
     @Column
+    val address: String,
+
+    @Column
     val restaurantImageUrl: String,
 
     @Column

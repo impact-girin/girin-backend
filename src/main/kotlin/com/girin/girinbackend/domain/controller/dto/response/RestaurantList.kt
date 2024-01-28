@@ -12,6 +12,7 @@ data class RestaurantList(
         val latitude: Double,
         val longitude: Double,
         val restaurantImageUrl: String,
+        val restaurantAddress: String,
     )
 }
 
@@ -21,6 +22,7 @@ data class OneRestaurantElement(
     val name: String,
     val latitude: Double,
     val longitude: Double,
+    val restaurantAddress: String,
     val restaurantImageUrl: String,
     val reviewScore: Double,
     val reviewCount: Int,

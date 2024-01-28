@@ -29,6 +29,7 @@ class RestaurantService(
                 latitude = restaurant.latitude,
                 longitude = restaurant.longitude,
                 restaurantImageUrl = restaurant.restaurantImageUrl,
+                restaurantAddress = restaurant.address,
             )
         }
 
@@ -46,6 +47,7 @@ class RestaurantService(
                 latitude = restaurant.latitude,
                 longitude = restaurant.longitude,
                 restaurantImageUrl = restaurant.restaurantImageUrl,
+                restaurantAddress = restaurant.address,
             )
         }
 
@@ -68,6 +70,7 @@ class RestaurantService(
             name = restaurant.name,
             latitude = restaurant.latitude,
             longitude = restaurant.longitude,
+            restaurantAddress = restaurant.address,
             restaurantImageUrl = restaurant.restaurantImageUrl,
             reviewScore = restaurant.reviewScore,
             reviewCount = restaurant.reviewCount,
