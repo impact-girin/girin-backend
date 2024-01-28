@@ -19,6 +19,7 @@ enum class GlobalErrorCode(
     FEIGN_NOT_FOUND(404, "Feign Not Found"),
     MOUNTAIN_NOT_FOUND(404, "Mountain Not Found"),
     MOUNTAIN_CLUB_NOT_FOUND(404, "Mountain Club Not Found"),
+    RESTAURANT_NOT_FOUND(404, "Restaurant Not Found"),
 
     USER_EXIST(status = 409, message = "User Exist"),
     ALREADY_PARTICIPATE(409, "Already Participate"),
